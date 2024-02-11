@@ -17,14 +17,23 @@
 #   about_triangle_project_2.py
 #
 def triangle(a, b, c):
-    # DELETE 'PASS' AND WRITE THIS CODE
+
+    # All sides should be greater than 0
+    if a <= 0 or b <= 0 or c <= 0:
+        raise TriangleError(AttributeError('Negative edge is not allowed'))
+
+    # The sum of any two sides should be greater than the third one
+    if a+b <= c or a+c <= b or b+c <= 0:
+        raise TriangleError(AttributeError(
+            'largest side should be smaller than sum of 2 other sides'))
+
+    # Triangle project 1
     if (a == b == c):
         return 'equilateral'
     elif (a == b or a == c or b == c):
         return 'isosceles'
     else:
         return 'scalene'
-
 
 # Error class used in part 2.  No need to change this code.
 
